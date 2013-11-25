@@ -1,8 +1,17 @@
 pid: <%= thin_pid %>
-address: 127.0.0.1
+tag: <%= thin_tag %>
+user: <%= thin_user %>
+group: <%= thin_group %>
+socket: <%= thin_socket %>
+
+onebyone: true
+
+threaded: <%= thin_threaded %>
+no-epoll: <%= thin_no_epoll %>
+daemonize: true
 timeout: 30
 wait: 30
-port: <%= thin_port %>
+
 log: <%= thin_log %>
 max_conns: <%= thin_max_conns %>
 require: []
@@ -10,6 +19,4 @@ require: []
 environment: <%= retrieve_env %>
 max_persistent_conns: <%= thin_max_persistent_conns %>
 servers: <%= thin_servers %>
-daemonize: true
 chdir: <%= current_path %>
-

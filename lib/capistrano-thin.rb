@@ -5,6 +5,13 @@ Capistrano::Configuration.instance.load do
     set(variable, *args, &block) if !exists?(variable)
   end
 
+  _cset(:thin_tag) { 'thin' }
+  _cset(:thin_user) { 'deploy_user' }
+  _cset(:thin_group) { 'deploy_group' }
+  _cset(:thin_socket) { 'tmp/sockets/thin.sock' }
+  _cset(:thin_threaded ) { 'true' }
+  _cset(:thin_no_epoll) { 'true' }
+
   _cset(:thin_command) { 'bundle exec thin' }
   _cset(:thin_config_file) { "#{current_path}/thin.yml" }
   _cset(:thin_config) { "-C #{thin_config_file}" }

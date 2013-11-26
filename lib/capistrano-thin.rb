@@ -1,6 +1,6 @@
 require 'erb'
 
-module CapistranoResque
+module CapistranoThin
   class CapistranoIntegration
 
     unless methods.map(&:to_sym).include?(:_cset)
@@ -89,5 +89,5 @@ module CapistranoResque
 end
 
 if Capistrano::Configuration.instance
-  CapistranoResque::CapistranoIntegration.load_into(Capistrano::Configuration.instance)
+  CapistranoThin::CapistranoIntegration.load_into(Capistrano::Configuration.instance)
 end

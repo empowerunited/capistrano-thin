@@ -2,7 +2,13 @@ pid: <%= thin_pid %>
 tag: <%= thin_tag %>
 user: <%= thin_user %>
 group: <%= thin_group %>
+
+<% if thin_use_unix == 'true' %>
 socket: <%= thin_socket %>
+<% else %>
+address: <%= thin_address %>
+port: <%= thin_port %>
+<% end %>
 
 onebyone: true
 

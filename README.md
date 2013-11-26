@@ -22,6 +22,15 @@ add in your deploy.rb or production.rb
 
 configure
 
+    set(:thin_use_unix, 'false')
+    # uncomment this for sockets
+    # set(:thin_socket, "#{shared_path}/sockets/yatoto.sock")
+    #
+    # comment this if you want unix sockets
+    set(:thin_address, '127.0.0.1')
+    set(:thin_address, '30000')
+
+
     set(:thin_tag, 'thin_yourwebsite') # for ps aux
     set(:thin_user, 'deployment')
     set(:thin_group, 'deployment')

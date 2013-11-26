@@ -1,12 +1,10 @@
 # Capistrano::Thin
 
-TODO: Write a gem description
-
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'capistrano-thin'
+    gem 'capistrano-thin', require: false
 
 And then execute:
 
@@ -18,7 +16,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+add in your deploy.rb or production.rb
+
+    require 'capistrano-thin'
+
+configure
+
+    set(:thin_tag, 'thin_yourwebsite') # for ps aux
+    set(:thin_user, 'deployment')
+    set(:thin_group, 'deployment')
+    set(:thin_socket, "#{shared_path}/sockets/yourwebsite.sock") # the name of the socket
+    set(:thin_threaded , 'true')
+    set(:thin_no_epoll, 'true')
+    set(:thin_pid, 'tmp/pids/thin.pid')
+    set(:thin_log, 'log/staging.log')
+    set(:thin_max_conns, 1024)
+    set(:thin_max_persistent_conns, 512)
+    set(:thin_servers, 2)
+
+
 
 ## Contributing
 
